@@ -1,0 +1,32 @@
+framework module LightningCache {
+    umbrella header "LightningCache.h"
+    
+    export *
+    module * { export * }
+}
+
+module SQLiteMacOSX {
+    header "../SQLite3/sqlite3.h"
+    export *
+}
+
+module SQLiteiPhoneOS {
+    header "../SQLite3/sqlite3.h"
+    export *
+}
+
+module SQLiteiPhoneSimulator {
+    header "../SQLite3/sqlite3.h"
+    export *
+}
+
+module SQLiteWatchOS {
+    header "../SQLite3/sqlite3.h"
+    export *
+}
+
+module SQLiteWatchSimulator {
+    header "../SQLite3/sqlite3.h"
+    export *
+}
+
