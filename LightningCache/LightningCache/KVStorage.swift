@@ -137,15 +137,11 @@ extension KVStorage {
 // MARK: - Operation
 extension KVStorage {
     public func save(item: KVStorageItem) -> Bool {
-        return save(key: item.key,
-                    value: item.value,
-                    filename: item.filename)
+        return save(key: item.key, value: item.value, filename: item.filename)
     }
     
     public func save(key: String, value: Data?) -> Bool {
-        return save(key: key,
-                    value: value,
-                    filename: nil)
+        return save(key: key, value: value, filename: nil)
     }
     
     public func save(key: String, value: Data?, filename: String?) -> Bool {

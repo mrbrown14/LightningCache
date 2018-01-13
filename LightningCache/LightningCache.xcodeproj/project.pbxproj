@@ -20,6 +20,7 @@
 		70353E731FEF0944004F8C69 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70353E511FEEFDBA004F8C69 /* SQLiteDB.swift */; };
 		70353EA01FF5FD1F004F8C69 /* mdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 70353E9F1FF5FD1F004F8C69 /* mdb.c */; };
 		70353EA31FF5FD2B004F8C69 /* midl.c in Sources */ = {isa = PBXBuildFile; fileRef = 70353EA21FF5FD2B004F8C69 /* midl.c */; };
+		CD67849320097F6E00FAEA98 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD67849220097F6E00FAEA98 /* Cacheable.swift */; };
 		CD699CDA1FFC4D650008887F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = CD699CD81FFC4D650008887F /* sqlite3.c */; settings = {COMPILER_FLAGS = "-DMDB_USE_POSIX_SEM -Wno-ambiguous-macro -Wno-unused-parameter -Wno-shorten-64-to-32 -Wno-unused-function"; }; };
 		CD699CDE1FFC501B0008887F /* LightningCacheKVStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD699CD51FFC1D850008887F /* LightningCacheKVStoreTests.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		70353E9F1FF5FD1F004F8C69 /* mdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mdb.c; sourceTree = "<group>"; };
 		70353EA11FF5FD2B004F8C69 /* midl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midl.h; sourceTree = "<group>"; };
 		70353EA21FF5FD2B004F8C69 /* midl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = midl.c; sourceTree = "<group>"; };
+		CD67849220097F6E00FAEA98 /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		CD699CD51FFC1D850008887F /* LightningCacheKVStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightningCacheKVStoreTests.swift; sourceTree = "<group>"; };
 		CD699CD81FFC4D650008887F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		CD699CD91FFC4D650008887F /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				70353E4B1FEEFDBA004F8C69 /* MemoryCache.swift */,
 				70353E501FEEFDBA004F8C69 /* Mutex.swift */,
 				70353E511FEEFDBA004F8C69 /* SQLiteDB.swift */,
+				CD67849220097F6E00FAEA98 /* Cacheable.swift */,
 			);
 			path = LightningCache;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				70353EA31FF5FD2B004F8C69 /* midl.c in Sources */,
 				70353E561FEEFDBA004F8C69 /* LightningCache.swift in Sources */,
+				CD67849320097F6E00FAEA98 /* Cacheable.swift in Sources */,
 				70353E581FEEFDBA004F8C69 /* MD5.swift in Sources */,
 				70353E541FEEFDBA004F8C69 /* MemoryCache.swift in Sources */,
 				70353E521FEEFDBA004F8C69 /* LinkedMap.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DiskCache<Key: CacheKey, Value: Hashable> {
+public class DiskCache<Key: CacheKey, Value: Cacheable> {
 
     public typealias ValueType = Value
     public typealias KeyType = Key
@@ -26,10 +26,8 @@ public class DiskCache<Key: CacheKey, Value: Hashable> {
     public var ageLimit = TimeIntervalMax
     public var autoTrimInterval = TimeInterval(5)
 
-
-    public var totalCount: UInt { return 0 }
-    public var totalCost: UInt { return 0 }
-
+    public var totalCount: Int32 { return kvs.totalItemCount }
+    public var totalCost: Int32 { return kvs.totalItemSize }
 
     public var customFilename: ((String) -> String)?
     public func totalCount(_ calculate: ((_ count: UInt) -> Void)?) {
@@ -48,7 +46,7 @@ public class DiskCache<Key: CacheKey, Value: Hashable> {
         
         guard let kvStorage = KVStorage<Key>(path: path, type: type) else { return nil }
         kvs = kvStorage
-    }    
+    }
     
     private func fileNameForKey(_ key: String) -> String {
         if let custom = customFilename {
@@ -77,9 +75,8 @@ public class DiskCache<Key: CacheKey, Value: Hashable> {
         let item = kvs.itemForKey(key: key.description)
         lock.signal()
         
-        return item?.value as? Value
-//        guard let data = item?.value else { return nil }
-//        return Value.build(data) as? Value
+        guard let data = item?.value else { return nil }
+        return Value.deserialize(data) as? Value
     }
     
     public func valueForKey(_ key: Key, handle: ((_ key: Key, _ value: Value?) -> Void)?) {
@@ -91,8 +88,8 @@ public class DiskCache<Key: CacheKey, Value: Hashable> {
     }
     
     public func setValue(_ value: Value?, withKey key: Key) {
-//        let data = value?.mapToData()
-        let data = value
+        let data = value?.serialize()
+
         switch kvs.type {
         case .sqlite:
             _ = kvs.save(key: key.description, value: data as? Data)

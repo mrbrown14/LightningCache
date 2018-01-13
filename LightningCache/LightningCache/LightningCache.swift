@@ -11,7 +11,7 @@ import Foundation
 public typealias CacheKey = CustomStringConvertible & Hashable
 public let TimeIntervalMax = TimeInterval(Double.greatestFiniteMagnitude)
 
-public class LightningCache<Key: CacheKey, Value: Hashable> {
+public class LightningCache<Key: CacheKey, Value: Cacheable> {
 
     public var name: String? = nil {
         didSet {
@@ -32,7 +32,7 @@ public class LightningCache<Key: CacheKey, Value: Hashable> {
     }
     
     public init?(path: String) {
-        guard let disk = DiskCache<Key, Value>(path: path, threshold: 1024 * 20) else { return nil }
+        guard let disk = DiskCache<Key, Value>(path: path, threshold: UInt.max) else { return nil }
         diskCache = disk
         memoryCache = MemoryCache<Key, Value>()
         name = MD5Encoder.encodeMd5(string: path)

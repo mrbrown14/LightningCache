@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public class MemoryCache<Key: Hashable, Value: Any> {
+public class MemoryCache<Key: Hashable, Value: Cacheable> {
     
     public typealias OPerationBlock = (_ cache: MemoryCache<Key,Value>) -> Void
     public typealias ValueType = Value
